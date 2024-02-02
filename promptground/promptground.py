@@ -11,15 +11,11 @@ class PromptGround:
         self.access_token = self.obtain_access_token()
 
     def create_signature(self, key, secret_key, timestamp):
-        data = str({
-            "key": key,
-            "secret": secret_key,
-            "timestamp": timestamp
-        })
+        data = f"{key}#{secret_key}#{timestamp}"
         return hmac.new(secret_key.encode(), data.encode(), hashlib.sha256).hexdigest()
 
     def obtain_access_token(self):
-        timestamp = str(datetime.utcnow())
+        timestamp = int(datetime.utcnow().timestamp())
         signature = self.create_signature(self.api_key, self.api_secret, timestamp)
         url = f"{self.base_url}/token"
         payload = {
