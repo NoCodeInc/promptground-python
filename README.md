@@ -6,8 +6,9 @@ A simple Python SDK for interacting with the PromptGround API.
 
 Install the SDK using pip:
 
+```bash
 pip install promptground
-
+```
 
 ## Usage
 
