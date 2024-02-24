@@ -15,6 +15,6 @@ pip install promptground
 ```python
 from promptground import PromptGround
 
-pg = PromptGround(api_key="your_api_key_id", api_secret="your_api_secret")
+pg = PromptGround(api_key="YOUR API KEY")
 prompt = pg.prompt(alias='welcome-user', data={'name': 'PromptGround'})
 print(prompt) # Outputs "Welcome to PromptGround"
