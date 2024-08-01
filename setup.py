@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='promptground',
-    version='0.3.0',
+    version='1.0.0',
     author='NoCode, Inc.',
     description='A Python SDK for interacting with PromptGround API.',
     long_description=open('README.md').read(),
