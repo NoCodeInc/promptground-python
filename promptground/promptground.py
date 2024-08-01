@@ -27,7 +27,7 @@ class PromptGround:
         self.base_url = base_url
         self.context = {
             'sdk': 'python',
-            'sdk-version': '1.0.0'
+            'sdk-version': '1.0.1'
         }
 
     def messages(self, alias, data={}, version=None) -> list:
