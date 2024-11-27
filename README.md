@@ -81,7 +81,7 @@ Fetch messages from the PromptGround API.
 **Returns:**
 - `list`: A list of messages. Each message is a dictionary with `content` and `role`. For example, `[{content: "message content", role: "system"}]`. The `role` can be `system`, `user`, or `assistant`.
 
-### `run(alias, data={}, metadata={}, labels=[], model=None, version=None)`
+### `run(alias, data={}, metadata={}, labels=[], model=None, version=None, response_format=None)`
 
 Run a prompt and return the result.
 
@@ -92,6 +92,7 @@ Run a prompt and return the result.
 - `labels` (list, optional): An array for distinguishing different prompts and filtering them afterward in the "Runs" dashboard.
 - `model` (str, optional): The model to use for the prompt. If not provided, the most recent model will be used.
 - `version` (str, optional): The specific prompt version ID to call. If not provided, the most recent prompt version will be used.
+- `response_format` (str, optional): The response format for the prompt (e.g. `json_object`).
 
 **Returns:**
 - `PromptRunResult`: The result of running the prompt.

@@ -27,7 +27,7 @@ class PromptGround:
         self.base_url = base_url
         self.context = {
             'sdk': 'python',
-            'sdk-version': '1.1.0'
+            'sdk-version': '1.1.1'
         }
 
     def messages(self, alias, data={}, version=None) -> list:
@@ -65,7 +65,7 @@ class PromptGround:
         else:
             raise Exception(response.json().get("message", "Error fetching messages"))
         
-    def run(self, alias, data={}, metadata={}, labels=[], model=None, version=None) -> PromptRunResult:
+    def run(self, alias, data={}, metadata={}, labels=[], model=None, version=None, response_format=None) -> PromptRunResult:
         """
         Run a prompt and return the result.
 
@@ -74,7 +74,9 @@ class PromptGround:
         data (dict): The data for the prompt.
         metadata (dict, optional): Metadata for the prompt.
         labels (list, optional): Labels for the prompt.
+        model (str, optional): The model to use for the prompt.
         version (str, optional): The version of the prompt.
+        response_format (str, optional): The response format for the prompt.
 
         Returns:
         PromptRunResult: The result of running the prompt.
@@ -104,6 +106,9 @@ class PromptGround:
 
         if model:
             payload['model'] = model
+
+        if response_format:
+            payload['response_format'] = response_format
 
         response = requests.post(url, headers=headers, json=payload)
         if response.status_code == 200 and response.json().get("success", False):
